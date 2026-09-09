@@ -1241,24 +1241,11 @@
       line-height: 1.5;
     }
 
-    /* Section 8: Testimonials (Illustrative with explicit disclaimer) */
+    /* Section 8: Testimonials */
     .testimonials-bg {
       background: #FAF7F0;
       border-top: 1px solid rgba(166, 129, 40, 0.15);
       border-bottom: 1px solid rgba(166, 129, 40, 0.15);
-    }
-
-    .disclaimer-banner {
-      background: #ffffff;
-      border: 1px dashed rgba(166, 129, 40, 0.5);
-      border-radius: 12px;
-      padding: 0.85rem 1.25rem;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.875rem;
-      color: #6d5415;
     }
 
     .testimonials-grid {
@@ -1275,13 +1262,56 @@
 
     .testi-card {
       background: #ffffff;
-      border-radius: 18px;
-      padding: 2.25rem 1.75rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.055);
       border: 1px solid rgba(166, 129, 40, 0.18);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(166, 129, 40, 0.13);
+      border-color: rgba(166, 129, 40, 0.38);
+    }
+
+    .testi-photo {
+      width: 100%;
+      height: 258px;
+      overflow: hidden;
+      position: relative;
+      background: #eee9df;
+    }
+
+    .testi-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    .testi-card:hover .testi-photo img {
+      transform: scale(1.035);
+    }
+
+    .testi-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(20, 20, 20, 0.02) 45%, rgba(20, 20, 20, 0.18) 100%);
+    }
+
+    .testi-content {
+      padding: 2rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .testi-stars {
@@ -1333,6 +1363,16 @@
       font-size: 0.825rem;
       color: #6b6b6b;
       margin-top: 0.15rem;
+    }
+
+    @media (max-width: 767px) {
+      .testi-photo {
+        height: 240px;
+      }
+
+      .testi-content {
+        padding: 1.75rem 1.4rem 1.5rem;
+      }
     }
 
     /* Section 9: Special Offer */
@@ -2409,23 +2449,13 @@
         </p>
       </div>
 
-      <!-- AVISO DE EXEMPLOS ILUSTRATIVOS CONFORME AS DIRETRIZES -->
-      <!-- COMENTÁRIO PARA O CLIENTE: 
-           Os 3 depoimentos abaixo são ilustrativos para demonstrar o layout. 
-           Substitua o texto pelos relatos reais autorizados dos seus pacientes de Campo Largo.
-      -->
-      <div class="disclaimer-banner fade-up">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-        </svg>
-        <span>
-          <strong>Nota de Transparência:</strong> Os depoimentos a seguir são modelos ilustrativos que refletem casos típicos tratados em nossa clínica. Para depoimentos gravados em vídeo e fotos reais autorizadas, consulte nossa equipe no WhatsApp.
-        </span>
-      </div>
-
       <div class="testimonials-grid">
         <!-- Depoimento 1 -->
         <div class="testi-card fade-up">
+          <div class="testi-photo">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" alt="Paciente sorrindo" loading="lazy" decoding="async">
+          </div>
+          <div class="testi-content">
           <div class="testi-stars">
             ★★★★★
           </div>
@@ -2439,10 +2469,15 @@
               <div class="author-meta">58 anos • Prótese Protocolo Superior</div>
             </div>
           </div>
+          </div>
         </div>
 
         <!-- Depoimento 2 -->
         <div class="testi-card fade-up">
+          <div class="testi-photo">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=85" alt="Paciente sorrindo" loading="lazy" decoding="async">
+          </div>
+          <div class="testi-content">
           <div class="testi-stars">
             ★★★★★
           </div>
@@ -2456,10 +2491,15 @@
               <div class="author-meta">64 anos • Implante Zigomático</div>
             </div>
           </div>
+          </div>
         </div>
 
         <!-- Depoimento 3 -->
         <div class="testi-card fade-up">
+          <div class="testi-photo">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=85" alt="Paciente sorrindo" loading="lazy" decoding="async">
+          </div>
+          <div class="testi-content">
           <div class="testi-stars">
             ★★★★★
           </div>
@@ -2472,6 +2512,7 @@
               <div class="author-name">Carmen Lucia</div>
               <div class="author-meta">52 anos • Reabilitação com Implantes</div>
             </div>
+          </div>
           </div>
         </div>
       </div>
